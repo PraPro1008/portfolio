@@ -374,39 +374,6 @@ nav a:hover {
     position: relative;
 }
 
-.glow-circle {
-    width: 300px;
-    height: 300px;
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(77,156,255,0.25),
-            rgba(84,246,197,0.08),
-            transparent 70%
-        );
-
-    filter: blur(25px);
-
-    animation: pulseGlow 4s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-
-    0%, 100% {
-        transform: scale(0.95);
-        opacity: 0.7;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-}
 
 
 /* ==================================================
@@ -485,41 +452,7 @@ nav a:hover {
     }
 }
 
-.photo-icon {
-    width: 45px;
-    height: 45px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 12px;
-
-    border: 1px solid rgba(84,246,197,0.5);
-
-    border-radius: 50%;
-
-    color: #54f6c5;
-
-    font-size: 1.6rem;
-
-    text-shadow: 0 0 10px #54f6c5;
-}
-
-.photo-placeholder p {
-    color: #d8deea;
-
-    font-size: 0.75rem;
-    font-weight: bold;
-
-    letter-spacing: 2px;
-}
-
-.photo-placeholder span {
-    color: #697181;
-
-    font-size: 0.65rem;
-}
 
 
 /* ==================================================
@@ -987,16 +920,6 @@ nav a:hover {
         );
 }
 
-.project-future {
-    background:
-        linear-gradient(
-            110deg,
-            rgba(180,108,255,0.07),
-            rgba(12,15,25,0.9)
-        );
-
-    opacity: 0.8;
-}
 
 .project-top {
     display: flex;
@@ -1024,9 +947,6 @@ nav a:hover {
     letter-spacing: 1px;
 }
 
-.future-status {
-    color: #b46cff;
-}
 
 .project-arrow {
     color: #4d9cff;
@@ -1079,53 +999,7 @@ nav a:hover {
     flex-shrink: 0;
 }
 
-.future-line {
-    width: 100px;
-    height: 1px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #b46cff,
-            transparent
-        );
-
-    box-shadow:
-        0 0 10px rgba(180,108,255,0.4);
-}
-
-
-/* ==================================================
-   STATS
-================================================== */
-
-.stats-section {
-    width: 86%;
-
-    margin: 0 auto;
-
-    padding: 50px;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    background: rgba(13,16,27,0.75);
-
-    border: 1px solid rgba(255,255,255,0.07);
-
-    border-radius: 14px;
-}
-
-.stat {
-    text-align: center;
-
-    border-right: 1px solid rgba(255,255,255,0.08);
-}
-
-.stat:last-child {
-    border-right: none;
-}
 
 /* ==================================================
    POLISH + RESPONSIVE
@@ -1393,6 +1267,16 @@ body::before {
         right: 3%;
     }
 
+    .coding-profiles {
+        top: 250px;
+        right: 3%;
+    }
+
+    .coding-profiles a {
+        min-width: 58px;
+        padding: 7px 5px;
+    }
+
     .hero-terminal {
         width: min(390px, 90%);
         margin-top: 80px;
@@ -1457,21 +1341,6 @@ body::before {
         transform: translateY(-4px);
     }
 
-    .stats-section {
-        width: 90%;
-        padding: 30px 18px;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px 10px;
-    }
-
-    .stat:nth-child(2) {
-        border-right: none;
-    }
-
-    .stat strong {
-        font-size: 1.2rem;
-    }
-
     .education-card {
         padding: 28px 24px;
         align-items: flex-start;
@@ -1510,13 +1379,26 @@ body::before {
         height: 190px;
     }
 
+    .coding-profiles {
+        top: 215px;
+        right: 2%;
+        gap: 6px;
+    }
+
+    .coding-profiles a {
+        min-width: 51px;
+        font-size: 0.5rem;
+    }
+
+    .profile-mark {
+        width: 25px;
+        height: 25px;
+        font-size: 0.6rem;
+    }
+
     .hero-terminal {
         margin-top: 70px;
         margin-left: -20px;
-    }
-
-    .stats-section {
-        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -1533,6 +1415,57 @@ body::before {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* ==================================================
+   CODING PROFILES
+================================================== */
+
+.coding-profiles {
+    position: absolute;
+    top: 325px;
+    right: 2%;
+    z-index: 4;
+    display: flex;
+    gap: 9px;
+}
+
+.coding-profiles a {
+    min-width: 68px;
+    padding: 8px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #8d94a2;
+    background: rgba(8,11,20,0.82);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.58rem;
+    text-align: center;
+    transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.coding-profiles a:hover {
+    transform: translateY(-3px);
+    color: #54f6c5;
+    border-color: rgba(84,246,197,0.45);
+    box-shadow: 0 0 18px rgba(84,246,197,0.09);
+}
+
+.profile-mark {
+    width: 29px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(77,156,255,0.35);
+    border-radius: 7px;
+    color: #4d9cff;
+    font-size: 0.68rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(77,156,255,0.5);
 }
 
 /* ==================================================
